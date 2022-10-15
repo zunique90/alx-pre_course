@@ -20,10 +20,11 @@ void go_north_west(int *lat, int *lon)
 	*lon = *lon - 2;
 }
 
+int latitude = 32;
+int longitude = -64;
+
 int main()
 {	
-	int latitude = 32;
-	int longitude = -64;
 
 	printf("Ahoy matey's!! let's go south-east!!\n");
 	go_south_east(&latitude, &longitude);
