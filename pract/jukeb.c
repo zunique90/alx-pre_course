@@ -1,22 +1,29 @@
 #include <stdio.h>
 #include <string.h>
 
-char tracks[][80] = {
-	"I left my heart in Harvard Med School",
-	"Newark, Newark - a wonderful town",
-	"Dancing with a Dork",
-	"From here to maternity",
-	"The girl from Iwo Jima",
+char tracks[][80] = 
+{
+	{"I left my heart in Harvard Med School"},
+	{"Newark, Newark - a wonderful town"},
+	{"Dancing with a Dork"},
+	{"From here to maternity"},
+	{"The girl from Iwo Jima"}
 };
+
 void find_track(char search_for[])
 {
-	int i;
+	int i = 0;
+	char *sub;
+
+	printf("searching tracks\n");
+
 	for (i = 0; i < 5; i++)
 	{
-		if (strstr(tracks[i], search_for))
-		{
-			printf("Track %i: '%s'\n", i, tracks[i]);
-		}
+		sub = strstr(*tracks, search_for);
+		if (sub == NULL)
+			printf("no match found\n");
+		else
+			printf("found it!! Track %i: %s\n", i, sub);
 	}
 }
 int main()
