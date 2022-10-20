@@ -23,8 +23,6 @@ void find_track(char search_for[])
 		if (strstr(tracks[i], search_for))
 			printf("found it!! Track %i: %s\n", i + 1, tracks[i]);
 	}
-	//if (!(strstr(*tracks, search_for)))
-	//	printf("No match found\n");
 }
 /* main function asks user for substring */
 int main()
