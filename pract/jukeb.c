@@ -14,17 +14,16 @@ char tracks[][80] =
 void find_track(char search_for[])
 {
 	int i = 0;
-	char *sub;
 
 	printf("searching tracks\n");
 
 	for (i = 0; i < 5; i++)
 	{
-		sub = strstr(tracks[i], search_for);
-		if (sub == NULL)
-			printf("no match found\n");
+		if (strstr(tracks[i], search_for))
+		printf("found it!! Track %i: %s\n", i + 1, tracks[i]);
+		
 		else
-			printf("found it!! Track %i: %s\n", i, sub);
+			printf("No match found\n");
 	}
 }
 /* main function asks user for substring */
@@ -35,6 +34,7 @@ int main()
 	printf("Search for: "); /* asks user to input substring */
 
 	fgets(search_for, 80, stdin); /* gets input(substring eg "town") from user via stdin(keyboard) */
+	search_for[strcspn(search_for, "\n")] = 0;
 
 	find_track(search_for); /* calls the find_track function to get the track containing the substring */
 	return (0);
