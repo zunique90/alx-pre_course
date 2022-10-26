@@ -10,7 +10,7 @@ int main (void)
 {
 	struct node *head, *newnode, *temp;
 	head = 0;
-	int i, choice = 1;
+	int i, choice;
 	int count = 0;
 
 	while (choice)
@@ -30,15 +30,15 @@ int main (void)
 		printf("Do you wish to stop? (0 Yes/1 No)");
 		scanf("%d", &choice);
 	}
-	free(newnode);
+	getchar();
 
 	temp = head;
 	while (temp != 0)
 	{
-		printf("%d", temp->data);
+		printf("%d ", temp->data);
 		temp = temp->next;
 		count++;
 	}
-	printf("The number of numbers created is %d\n", count);
+	printf("\nThe number of nodes created is %d\n", count);
 	return (0);
 }

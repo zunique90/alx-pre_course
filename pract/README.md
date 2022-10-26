@@ -1,1 +1,1 @@
-This directory was created for studying and practicing exercises int he book "Head first C"
+This directory was created for studying and practicing exercises in the book "Head first C"
