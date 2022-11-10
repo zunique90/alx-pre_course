@@ -4,17 +4,17 @@
 
 int main(void)
 {
-	while (true)
+	char *line = NULL;
+	char **tokens = NULL;
+	while (1)
 	{
 		printf("$ ");
-		char *line = cq_read();
-		char **tokens = cq_tokenize(line);
+		line = cq_read();
+		tokens = cq_tokenize(line);
 
 		if (tokens[0] != NULL)
 			cq_exec(tokens);
 		free(tokens);
 		free(line);
 	}
-
-	return (0);
 }

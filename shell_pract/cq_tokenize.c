@@ -1,7 +1,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-char** cq_tokenize(char *line)
+char **cq_tokenize(char *line)
 {
 	int i = 0;
 	int cap = 16;
@@ -17,8 +17,8 @@ char** cq_tokenize(char *line)
 
 		if (i >= cap)
 		{
-			cap = (cap * 1.5);
-			tokens = realloc(tokens, cap * sizeof(*char));
+			cap = (int) (cap * 1.5);
+			tokens = realloc(tokens, cap * sizeof(char*));
 		}
 		token = strtok(NULL, delim);
 	}
