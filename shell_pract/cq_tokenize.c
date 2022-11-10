@@ -5,7 +5,7 @@ char **cq_tokenize(char *line)
 {
 	int i = 0;
 	int cap = 16;
-	char **tokens = malloc(cap * sizeof(char*));
+	char **tokens = malloc(cap * sizeof(char *));
 
 	char *delim = " \t\n\r";
 	char *token = strtok(line, delim);
@@ -18,7 +18,7 @@ char **cq_tokenize(char *line)
 		if (i >= cap)
 		{
 			cap = (int) (cap * 1.5);
-			tokens = realloc(tokens, cap * sizeof(char*));
+			tokens = realloc(tokens, cap * sizeof(char *));
 		}
 		token = strtok(NULL, delim);
 	}

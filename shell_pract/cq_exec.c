@@ -5,6 +5,7 @@ void cq_exec(char **argv)
 	int status;
 
 	pid_t child_pid = fork();
+
 	if (child_pid == -1)
 	{
 		perror("cqsh");

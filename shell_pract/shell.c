@@ -6,6 +6,7 @@ int main(void)
 {
 	char *line = NULL;
 	char **tokens = NULL;
+
 	while (1)
 	{
 		printf("$ ");
