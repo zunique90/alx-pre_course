@@ -14,7 +14,11 @@ void cq_exec(char **argv)
 	if (child_pid == 0)
 	{
 		if (execve(argv[0], argv, NULL) == -1)
-			perror("cqsh");
+		{
+			write(STDERR_FILENO, argv[0], _strlen(argv[0]));
+			write(STDERR_FILENO, ": not found\n", 13);
+			exit(1);
+		}
 	}
 	else
 		wait(&status);

@@ -2,14 +2,15 @@
 #include <stdlib.h>
 #include "main.h"
 
-int main(void)
+int main(int __attribute__((unused))ac, char __attribute__((unused))**av)
 {
 	char *line = NULL;
 	char **tokens = NULL;
 
 	while (1)
 	{
-		printf("$ ");
+		write(STDOUT_FILENO, "$ ", 2);
+
 		line = cq_read();
 		tokens = cq_tokenize(line);
 
