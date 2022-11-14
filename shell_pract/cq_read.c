@@ -4,10 +4,16 @@ char *cq_read(void)
 {
 	char *line = NULL;
 	size_t len = 0;
+	int i;
 
-	while (getline(&line, &len, stdin) != -1)
-	{
+	i = getline(&line, &len, stdin);
+
+	if (i != -1)
 		return (line);
+	else
+	{
+		printf("\n");
+		exit(0);
 	}
 
 	exit(EXIT_SUCCESS);
