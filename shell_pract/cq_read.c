@@ -12,7 +12,7 @@ char *cq_read(void)
 		return (line);
 	else
 	{
-		write(STDOUT_FILENO, "\n", 1);
+		/* write(STDOUT_FILENO, "\n", 1); */
 		exit(0);
 	}
 
