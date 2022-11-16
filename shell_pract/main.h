@@ -22,5 +22,9 @@ int _env(void);
 void _puts(char *str);
 int _putchar(char c);
 char *_memset(char *s, char b, unsigned int n);
+char *_fullpathbuffer(char **av, char *PATH, char *copy);
+int checkbuiltins(char **av, char *buffer, int exitstatus);
+int _PATHsplt(char *s);
+int strcmpPATH(const char *s, const char *s1);
 
 #endif /* MAIN_H */

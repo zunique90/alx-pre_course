@@ -30,4 +30,40 @@ char **cq_tokenize(char *line)
 	return (tokens);
 }
 /**
- *
+ * _PATHsplt - counts number of path members
+ * @s: pointer to string to be counted
+ * Return: number counted
+ */
+int _PATHsplt(char *s)
+{
+	int i;
+	int flag = 1;
+	int count = 0;
+	for (i = 0; s[i]; i++)
+	{
+		if (s[i] != ':' && flag == 1)
+		{
+			count += 1;
+			flag = 0;
+		}
+		if (s[i + 1] == ':')
+			flag = 1;
+	}
+	return (count);
+}
+/**
+ * strcmpPATH - compares PATH with environ to find PATH value
+ * @s: pointer to PATH string
+ * @s1: pointer to environ string
+ * Return: 0 on success
+ */
+int strcmpPATH(const char *s, const char *s1)
+{
+	int i;
+	for (i = 0; s1[i] != '='; i++)
+	{
+		if (s[i] != s1[i])
+			return (-1);
+	}
+	return (0);
+}
