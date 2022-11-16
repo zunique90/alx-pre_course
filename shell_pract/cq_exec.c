@@ -1,27 +1,31 @@
 #include "main.h"
 
-void cq_exec(char **argv)
+int cq_exec(char **argv)
 {
-	int status;
+	int i, status, exitstat;
 
 	pid_t child_pid = fork();
 
 	if (child_pid == -1)
 	{
-		perror("./hsh");
+		perror("Error");
 		exit(1);
 	}
 	if (child_pid == 0)
 	{
 		if (execve(argv[0], argv, NULL) == -1)
 		{
-			perror("./hsh");
-			/*write(STDERR_FILENO, argv[0], _strlen(argv[0]));
-			write(STDERR_FILENO, ": not found\n", 13);*/
-			exit(1);
+			perror(argv[0]);
+			for (i = 0; argv[i]; i++)
+				free(argv[i]);
+			free(argv);
+			exit(127);
 		}
 	}
-	else
-		wait(&status);
+	wait(&status);
 
+	if (WIFEXITED(status))
+		exitstat = WEXITSTATUS(status);
+
+	return (exitstat);
 }

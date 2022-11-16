@@ -10,7 +10,7 @@
 
 char **cq_tokenize(char *line);
 char *cq_read(void);
-void cq_exec(char **argv);
+int cq_exec(char **argv);
 int _strlen(char *s);
 
 #endif /* MAIN_H */
