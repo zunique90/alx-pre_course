@@ -6,11 +6,16 @@ int main(int __attribute__((unused))ac, char __attribute__((unused))**av)
 {
 	char *line = NULL;
 	char **tokens = NULL;
+	ssize_t count = 0;
 
 	while (1)
 	{
-		write(STDOUT_FILENO, "$ ", 2);
-
+		if (isatty(STDIN_FILENO) == 1)
+		{
+			count = write(STDOUT_FILENO, "$ ", 2);
+			if (count == -1)
+				exit(0);
+		}
 		line = cq_read();
 		tokens = cq_tokenize(line);
 
